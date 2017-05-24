@@ -120,7 +120,6 @@ function validatePassword (pw) {
 <body>
 <?php
 require_once('utilities.php');
-require_once('header.php');
 
 
 
