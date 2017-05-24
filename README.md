@@ -17,3 +17,8 @@ If you're like me, and you probably aren't, the idea of using a closed source pa
 6. Start the PHP development server. eg. Open a cmd window, type "cd Documents\passhole", then type "c:\php\php.exe -S localhost:8000"
    
  Every time you start your machine you'll have to do #6 again, or you can script it to run on startup.
+
+
+# TODO
+- Why didn't I use PDO?
+- Group password entries.  Things get clumsy when there are a lot of them.
