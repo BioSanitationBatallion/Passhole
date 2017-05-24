@@ -1,6 +1,6 @@
 <?php
 
-require 'header.php';
+require 'config.php';
 
 class Encryption
 {
@@ -43,7 +43,9 @@ function checkPassword($user,$password) {
 	global $db;
 	$enc = new Encryption($password);
 	$encrypted = $enc->encrypt($TEST_STRING);
-	$res = $db->query("select encrypted from passwords where isteststring=1 and email='$user'");
+	$stmt = $db->prepare("select encrypted from passwords where isteststring=1 and email=:email");
+	$stmt->bindValue(':email',$user);
+	$res=$stmt->execute();
 	$row=$res->fetchArray();
 	if ($row && $row[0]==$encrypted) 
 		return true;
@@ -61,6 +63,7 @@ function getIP() {
 }
 
 
+// Not immplemented yet.
 function changePassword($username,$oldpassword,$newpassword) {
 	global $conn;
 
